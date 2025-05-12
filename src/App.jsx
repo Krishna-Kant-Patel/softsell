@@ -6,13 +6,15 @@ import HowItWorks from './components/HowItWorks/HowItWorks'
 import WhyChooseUs from './components/WhyChooseUs/WhyChooseUs'
 import Testimonials from './components/Testimonials/Testimonials'
 import ContactForm from './components/ContactForm/ContactForm'
+import ChatWidget from './components/ChatBot/ChatWidget'
 
 function App() {
 
   return (
     <main className="min-h-screen p-4 flex flex-col items-center justify-center 
   bg-white text-black dark:bg-gray-900 dark:text-white 
-  transition-colors duration-500 ease-in-out">
+  transition-colors duration-500 ease-in-out ">
+       <ChatWidget />
       <ThemeToggle />
       <Hero />
       <HowItWorks />

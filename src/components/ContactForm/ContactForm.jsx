@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -14,11 +15,18 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    toast.success("Message sent successfully!");
+    // console.log("Submitted Data:", formData);
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      licenseType: "",
+      message: "",
+    });
   };
-
   return (
     <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-500 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
@@ -101,6 +109,19 @@ export default function Contact() {
           </button>
         </motion.form>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light" 
+        style={{ zIndex: 9999 }} 
+               />
     </section>
   );
 }
